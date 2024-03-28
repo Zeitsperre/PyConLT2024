@@ -164,7 +164,7 @@ style: |
   }
 </style>
 
-![bg vertical right:50% 95%](img/Ouranos-Website.png)
+![bg vertical right:50% 95%](img/ouranos-website.png)
 ![bg 85%](img/ice-storm.jpg)
 
 # What is [Ouranos](https://www.ouranos.ca/en)?
@@ -329,8 +329,6 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 ---
 
-
-
 <!-- _header: "" -->
 <!-- _footer: "![height:26](img/github.png) https://github.com/Ouranosinc/xclim" -->
 
@@ -411,9 +409,9 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 <!-- _header: "" -->
 
-![bg right:45% contain](img/indicator.png)
+![bg right:45% contain](img/indicators.png)
 
-## **Xclim** algoritm design
+## **Xclim** algorithm design
 
 <!--  -->
 
@@ -602,7 +600,7 @@ On the left is the average annual temperature for the province of Quebec, while 
 <!-- -->
 
 - Adjusts model bias from projected data using a `train`/`adjust` approach
-- Several implementations available :
+- Several implementations available :
   - Quantile Mapping
   - Principal Components Analysis
   - Multivariate (MBCn)
@@ -614,13 +612,13 @@ On the left is the average annual temperature for the province of Quebec, while 
 
 <!-- -->
 
-* There's just too much data that we need to crunch:
+* There's just too much data that we need to crunch :
   - The data could be spread across servers globally
   - Local computing power is just not enough for the analysis
 
 * We need to run lots of specific workflows regularly
 
-* The user doesn't know how to write a Python script:
+* The user doesn't know how to write a Python script :
   - A biologist who uses `R` for their work
   - A city planner who just needs a range of estimates for future rainfall
   - Agronomist wondering about average growing conditions in 10 years
@@ -650,7 +648,7 @@ On the left is the average annual temperature for the province of Quebec, while 
 
 #### ![height:35](img/github.png) [github.com/Bird-house/Finch](https://github.com/bird-house/finch)
 
-- **Web Processsing Services** (WPS)
+- **Web Processing Services** (WPS)
   - Built with Python (**PyWPS**)
 - Remote scientific analysis platforms 
 * _Bird-house likes to name their projects after birds_
@@ -715,7 +713,7 @@ out.growing_degree_days.plot(hue='location')
 
 <style scoped>
   img {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     left: 10%;
     position: absolute;
     top: 15%;
@@ -863,6 +861,7 @@ out.growing_degree_days.plot(hue='location')
       linear-gradient(green, green) center,
       linear-gradient(red, red) bottom;
     background-size: 100% 33.33%;
+    background-repeat: no-repeat;
     color: white;
     font-size: 75px;
     height: 12%;
