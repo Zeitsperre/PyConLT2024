@@ -3,13 +3,18 @@ concurrency: marp-to-pages
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
     types:
       - opened
       - reopened
       - synchronize
       - closed
+
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,46 +22,39 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Ensure build dir exists
-        run: mkdir -p build
+        run: |
+          mkdir -p build
+
+      - name: Fetch Freud Style CSS
+        run: |
+          curl -sL https://cunhapaulo.github.io/style/freud.css -o build/freud.css
 
       - name: Copy images directory (if exists)
-        run: if [[ -d img ]]; then cp -R img build/img; fi
+        run: |
+          cp -R img build/img
 
-      - name: Marp Build (README)
-        uses: docker://marpteam/marp-cli:v3.0.2
+      - name: Marp Build (slides.md)
+        uses: docker://marpteam/marp-cli:v3.4.0
         with:
-          args: README.md -o build/index.html
+          args: slides.md -o build/index.html
         env:
           MARP_USER: root:root
 
-      - name: Marp Build (README.pdf)
-        uses: docker://marpteam/marp-cli:v3.0.2
+      - name: Marp Build (slides.pdf)
+        uses: docker://marpteam/marp-cli:v3.4.0
         with:
-          args: README.md --allow-local-files -o build/README.pdf
+          args: slides.md --allow-local-files -o build/slides.pdf
         env:
           MARP_USER: root:root
 
-      - name: Marp Build (README.pptx)
-        uses: docker://marpteam/marp-cli:v3.0.2
+      - name: Marp Build (slides.pptx)
+        uses: docker://marpteam/marp-cli:v3.4.0
         with:
-          args: README.md --allow-local-files -o build/README.pptx
-        env:
-          MARP_USER: root:root
-
-      - name: Check if docs folder exists
-        id: docs-folder-exists
-        run: bash -c "[[ -d docs ]] ; echo \"has_docs=\$?\" >> \"$GITHUB_OUTPUT\""
-
-      - name: Marp Build (docs folder, if exists)
-        if: steps.docs-folder-exists.outputs.has_docs == '0'
-        uses: docker://marpteam/marp-cli:v3.0.2
-        with:
-          args: -I docs/ -o build/docs/
+          args: slides.md --allow-local-files -o build/slides.pptx
         env:
           MARP_USER: root:root
 
