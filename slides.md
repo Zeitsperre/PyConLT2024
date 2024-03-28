@@ -115,7 +115,7 @@ style: |
 
 <!-- _footer: "Photo: Extratropropical Cyclone over Hudson Bay, Canada, August 2016. Credit: NASA Earth Observatory." -->
 
-![bg left](img/cyclone-extra-tropical-aout-2016.jpg)
+![bg left](img/extratropical-cyclone-august-2016.jpg)
 
 ### Presentation Outline
 
@@ -138,7 +138,7 @@ style: |
   p {font-size: 26px;}
 </style>
 
-![bg absolute left:40% 85%](img/profile2.jpg)
+![bg absolute left:40% 85%](img/profile.jpg)
 
 # Who am I?
 
@@ -563,7 +563,7 @@ with xclim.set_options(
   }
 </style>
 
-![bg 90%](img/ESPO-animation-EN.gif)
+![bg 90%](img/espo-animation.gif)
 
 ## What does **Xclim** do ➔ Climate Ensemble Mean Analysis
 
@@ -594,17 +594,17 @@ On the left is the average annual temperature for the province of Quebec, while 
 
 <!-- _header: "" -->
 
-![bg right:60% vertical contain](img/EQM.png)
-![bg contain](img/EQM-adjusted.png)
+![bg right:60% vertical contain](img/eqm.png)
+![bg contain](img/eqm-adjusted.png)
 
 ## What Does **Xclim** do? ➔ Bias Adjustment
 
 <!-- -->
 
 - Adjusts model bias from projected data using a `train`/`adjust` approach
-- Several implementations available:
+- Several implementations available :
   - Quantile Mapping
-  - Principle Components Analysis
+  - Principal Components Analysis
   - Multivariate (MBCn)
 - Plugin support for Python package **SBCK** (dOTC, CDFt, and other algorithms)
 
@@ -793,7 +793,7 @@ out.growing_degree_days.plot(hue='location')
 
 ## [ClimateData.ca](https://climatedata.ca)
 
-![bg width:100% height:100%](img/climatedataca-screen.png)
+![bg width:100% height:100%](img/climate-data-ca-screen.png)
 
 ---
 
@@ -863,7 +863,6 @@ out.growing_degree_days.plot(hue='location')
       linear-gradient(green, green) center,
       linear-gradient(red, red) bottom;
     background-size: 100% 33.33%;
-    background-repeat: no-repeat;
     color: white;
     font-size: 75px;
     height: 12%;
