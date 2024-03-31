@@ -45,7 +45,7 @@ style: |
     font-size: 40px;
     left: 5%; 
     opacity: 90%;
-    padding: 12.5px;
+    padding: 13px;
     position: absolute;
     right: auto;
   }
@@ -59,7 +59,7 @@ style: |
     opacity: 75%;
     padding: 10px;
     position: absolute;
-    right: 2.5%;
+    right: 5%;
     text-align: right;
   }
   header {
@@ -81,13 +81,13 @@ style: |
     background: lightblue;
     color: black;
     font-size: 24px;
-    left: 2.5%;
+    left: 3%;
   }
   img[alt~="top-right"] {
     background-color: transparent;
     position: absolute;
-    right: 2.5%;
-    top: 2.5%;
+    right: 3%;
+    top: 3%;
     width: 225px;
   }
 </style>
@@ -206,7 +206,7 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 <style scoped>
   footer {
     position: absolute;
-    bottom: 2%;
+    bottom: 3%;
     font-size: 16px;
   }
 </style>
@@ -459,7 +459,7 @@ out3 = xclim.atmos.growing_degree_days(tas=ds_pt.tas_F, thresh="278.15 K", freq=
   img {
     position: absolute;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    left: 7.5%;
+    left: 8%;
     size: 90%;
   }
 </style>
@@ -769,7 +769,7 @@ out.growing_degree_days.plot(hue='location')
     font-size: 40px;
     left: 5%;
     opacity: 80%;
-    padding: 15.5px;
+    padding: 16px;
     position: absolute;
     right: auto;
     top: 35%;
@@ -780,7 +780,7 @@ out.growing_degree_days.plot(hue='location')
     font-size: 40px;
     left: 10%;
     opacity: 80%;
-    padding: 15.5px;
+    padding: 16px;
     position: absolute;
     right: auto;
     top: 50%;
