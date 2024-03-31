@@ -119,7 +119,7 @@ style: |
 
 ### Presentation Outline
 
-<!-- This presentation is going to start by providing some context on the  -->
+<!-- This presentation is going to start by providing some context on climate adaptation information services, what my company has built with xclim and how we're actively making these kinds of analyses more accessible worldwide. -->
 
 - Who am I? / What is Ouranos?
 - What's our context?
@@ -132,11 +132,13 @@ style: |
 
 ---
 
-<!-- _footer: "" -->
-
 <style scoped>
   p {font-size: 26px;}
 </style>
+
+<!-- _footer: "" -->
+
+<!-- So who am I? I'm a research software developer from Montréal, Québec. My background is in environmental science, specifically GIS and agroclimate modelling. I only really started picking up dev work on the job. I'm also learning Japanese for fun. -->
 
 ![bg absolute left:40% 85%](img/profile.jpg)
 
@@ -149,13 +151,11 @@ style: |
 
 - Research software developer/maintainer from Montréal, Canada
 - Studied climate change impacts on wine viticulture in Southern Québec
-- Making stuff with Python for ~6 years
+- Making stuff with Python for ~6.5 years
 - 僕は日本語を勉強しています！
 
 ---
 
-<!-- _header: "" -->
-<!-- _footer: "" -->
 
 <style scoped>
   p {
@@ -164,42 +164,46 @@ style: |
   }
 </style>
 
+<!-- _header: "" -->
+<!-- _footer: "" -->
+
+<!-- My employer, Ouranos, is a not-for-profit based on Montréeal that works with the Canadian and Quebec governments on climate change adaptation. We were created in response to an extreme storm event that had 1.5 Million people without power for weeks and caused around 5.5 Billion dollars in damage. Our role is to connect government, industry, and academia with many types of climate information so that events like those are less impactful. For the past 8 years or so, we've been moving into software and research platform development. The core development team is small, but we do a lot of collaboration. -->
+
 ![bg vertical right:50% 95%](img/ouranos-website.png)
 ![bg 85%](img/ice-storm.jpg)
 
 # What is [Ouranos](https://www.ouranos.ca/en)?
 
-<!-- -->
-
 * Not-for-profit climate research consortium established in 2003 in Montréal, Québec, Canada
   * Created in response to the [January 1998 North American Ice Storm](https://en.wikipedia.org/wiki/January_1998_North_American_ice_storm)
 * Climate change adaptation, climate modelling, and **climate information services**
-* Regional Climate Projection Data Provider 
+* Regional Climate Model (RCM) Data Producer/Provider
 
 Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-richelieu_ice-storm/
 
 ---
 
-<!-- _header: "" -->
-<!-- _footer: "" -->
-
 <style scoped>
   p {font-size: 20px;}
 </style>
+
+<!-- _header: "" -->
+<!-- _footer: "" -->
+
+<!-- Before we get to the Python, it would be good to talk about why climate researchers are becoming software developers;  The fact that human-induced Climate Change is occurring is established fact. The temperature change alone has the potential to really impact a lot of things we depend on. Extreme global weather patterns are just one such side effect. -->
 
 ![bg vertical left:55% width:90% height:95%](img/hockey-stick.png)
 ![bg width:90% Surface air temperature anomaly for February 2024 using ERA5 Reanalysis - Courtesy of C3S/ECMWF](img/ecmwf-sat-anomaly-feb-2024.png)
 
 # <!-- fit --> What's the **climate** situation?
 
-<!-- -->
-
-- Climate Change is having major impacts on Earth's environmental systems
-- IPCC: **Global average temperature has increased > 1.1 °C** over pre-industrial normals
-
 *"Since systematic scientific assessments began in the 1970s, the influence of human activities on the warming of the climate system has evolved from theory to established fact"*
 
-\- IPCC Sixth Assessment Report Technical Summary
+\- IPCC Sixth Assessment Report Technical Summary (IPCC AR6-TS)
+
+- Climate Change is having major impacts on Earth's environmental systems
+- IPCC: **Global average temperature has increased > 1.1 °C** over pre-industrial normals.
+  - **> 1.5 °C** is seen as beyond a safe limit
 
 ---
 
@@ -207,35 +211,35 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
   footer {
     position: absolute;
     bottom: 3%;
-    font-size: 16px;
+    font-size: 15px;
   }
 </style>
 
 <!-- _footer: "Overpeck, Jonathan T., Gerald A. Meehl, Sandrine Bony, and David R. Easterling. “Climate Data Challenges in the 21st Century.” Science 331, no. 6018 (February 11, 2011): 700–702. https://doi.org/10.1126/science.1197869" -->
 
+<!-- Since we only have one Earth to run experiments on, climate models are one tool to give us physically consistent estimates on what the future _could_ look like. Unfortunately, this means we need more and more storage and computation resources to test more hypotheses. At some point it becomes completely unmanageable and really challenging to even use it, so we need intermediaries to help. -->
+
 ![bg right:45% 88%](img/overpeck-et-al-2011.png)
 
 # <!-- fit --> What's the **climate data** situation?
 
-<!-- -->
-
-* Climate data is growing exponentially in size
-    * Climate models being developed every year
-    * Simulations being produced every day
-    * Higher resolution input **and** output datasets
-    * Specialized analyses and user needs
+**Climate data is growing exponentially in size and complexity**
+  * New climate models being developed every year
+  * More climate simulations being produced every day
+  * Higher resolution input **and** output datasets
+  * Specialised analyses and more personalized user needs
 
 ---
 
 <!-- _footer: "Infographic from [The Canadian Centre for Climate Services (CCCS)](https://www.canada.ca/en/environment-climate-change/services/climate-change/canadian-centre-climate-services/about.html) " -->
+
+<!--  -->
 
 ![bg left:40% 80%](img/cccs-climate-services.png)
 
 # **Climate Services**
 
 ## What do they provide?
-
-<!-- -->
 
 - Tailoring objectives and information to different user needs
 - Providing access to **climate information**
@@ -251,9 +255,9 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
   }
 </style>
 
-# What information do **Climate Services** provide?
-
 <!-- -->
+
+# What information do **Climate Services** provide?
 
 <div class="container">
 
@@ -285,9 +289,9 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 ---
 
-# Why build a **Climate Services** library in **Python**? 
-
 <!--  -->
+
+# Why build a **Climate Services** library in **Python**? 
 
 * Robust and fast scientific Python libraries
 * Growing demand for climate services/products
@@ -298,9 +302,9 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 ---
 
-# What are the requirements?
-
 <!--  -->
+
+# What are the requirements?
 
 <div class="container">
 
@@ -330,13 +334,14 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 ---
 
 <!-- _header: "" -->
-<!-- _footer: "![height:26](img/github.png) https://github.com/Ouranosinc/xclim" -->
-
-![bg right:55% contain](img/xclim-schema.png)
-
-# **Xclim**: Climate Services library
 
 <!--  -->
+
+![bg right:54% contain](img/xclim-schema.png)
+
+# **Xclim** : Climate Services library
+
+![height:30](img/github.png) [Ouranosinc/xclim](https://github.com/Ouranosinc/xclim)
 
 - **Asynchonous IO** and **fast**
 - **Open Source** design
@@ -391,9 +396,9 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 ---
 
-## Upstream contributions from **Xclim**
-
 <!-- -->
+
+## Upstream contributions from **Xclim**
 
 - Non-standard calendar (`cftime`) support in `xarray.groupby`
 - Quantile methods in `xarray.groupby`
@@ -409,11 +414,11 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 <!-- _header: "" -->
 
+<!--  -->
+
 ![bg right:45% contain](img/indicators.png)
 
 ## **Xclim** algorithm design
-
-<!--  -->
 
 ### Two ways of calculating indicators
 
@@ -428,9 +433,9 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 ---
 
-## What does **Xclim** do? ➔ Units Management
-
 <!-- -->
+
+## What does **Xclim** do? ➔ Units Management
 
 ```python
 import xclim
@@ -464,9 +469,9 @@ out3 = xclim.atmos.growing_degree_days(tas=ds_pt.tas_F, thresh="278.15 K", freq=
   }
 </style>
 
-## What does **Xclim** do? ➔ Units Management
-
 <!-- -->
+
+## What does **Xclim** do? ➔ Units Management
 
 ![img](img/units-example.png)
 
@@ -525,9 +530,9 @@ with xclim.set_options(
   }
 </style>
 
-## What does **Xclim** do? ➔ Metadata Locales
-
 <!-- -->
+
+## What does **Xclim** do? ➔ Metadata Locales
 
 ![img](img/metadata-locales.png)
 
@@ -592,12 +597,12 @@ On the left is the average annual temperature for the province of Quebec, while 
 
 <!-- _header: "" -->
 
+<!-- -->
+
 ![bg right:60% vertical contain](img/eqm.png)
 ![bg contain](img/eqm-adjusted.png)
 
 ## What Does **Xclim** do? ➔ Bias Adjustment
-
-<!-- -->
 
 - Adjusts model bias from projected data using a `train`/`adjust` approach
 - Several implementations available :
@@ -608,9 +613,9 @@ On the left is the average annual temperature for the province of Quebec, while 
 
 ---
 
-### That's great and all, but what if...
-
 <!-- -->
+
+### That's great and all, but what if...
 
 * There's just too much data that we need to crunch :
   - The data could be spread across servers globally
@@ -627,6 +632,8 @@ On the left is the average annual temperature for the province of Quebec, while 
 
 <!-- _footer: "" -->
 
+<!-- -->
+
 ![bg left:50% 95%](img/ms-planetary-computer.png)
 
 # **Xclim** on Compute Platforms
@@ -639,12 +646,12 @@ On the left is the average annual temperature for the province of Quebec, while 
 
 <!-- _header: "" -->
 
+<!-- -->
+
 ![bg vertical right:50% 90%](img/birdhouse-git.png)
 ![bg contain](img/finches.png)
 
 # Finch: **Xclim** as a **Web Service**
-
-<!-- -->
 
 #### ![height:35](img/github.png) [github.com/Bird-house/Finch](https://github.com/bird-house/finch)
 
@@ -655,9 +662,9 @@ On the left is the average annual temperature for the province of Quebec, while 
 
 ---
 
-## Using the **Finch** Web Service from Python (`owslib`)
-
 <!-- -->
+
+## Using the **Finch** Web Service from Python (`owslib`)
 
 ```python
 from owslib.wps import WebProcessingService
@@ -679,9 +686,9 @@ print(len(finch.processes))  # --> 430 supported indicators and analyses!
 <!-- _header: "" -->
 <!-- _footer: "" -->
 
-## Using the **Finch** Web Service from Python (`birdy`)
-
 <!-- -->
+
+## Using the **Finch** Web Service from Python (`birdy`)
 
 ```python
 from birdy import WPSClient
@@ -724,11 +731,9 @@ out.growing_degree_days.plot(hue='location')
 <!-- _header: "" -->
 <!-- _footer: "" -->
 
+<!-- -->
 
 ## Using the **Finch** Web Service from Python (`birdy`) ![img](img/location-graphs.png)
-
-
-<!-- -->
 
 ```python
 from birdy import WPSClient
@@ -758,10 +763,6 @@ out.growing_degree_days.plot(hue='location')
 
 ---
 
-<!-- _header: "" -->
-<!-- _footer: "" -->
-<!-- _paginate: false -->
-
 <style scoped>
   h1 {
     background-color: white;
@@ -787,6 +788,12 @@ out.growing_degree_days.plot(hue='location')
   }
 </style>
 
+<!-- _header: "" -->
+<!-- _footer: "" -->
+<!-- _paginate: false -->
+
+<!-- -->
+
 # Making it accessible ➔ Web Frontends
 
 ## [ClimateData.ca](https://climatedata.ca)
@@ -799,15 +806,17 @@ out.growing_degree_days.plot(hue='location')
 <!-- _footer: "" -->
 <!-- _paginate: false -->
 
-![bg width:100% height:100%](img/climate-data-ca-dataset.png)
-
 <!--  -->
+
+![bg width:100% height:100%](img/climate-data-ca-dataset.png)
 
 ---
 
 <style scoped>
   {font-size: 26px;}
 </style>
+
+<!-- -->
 
 # <!-- fit --> Our Experience Adopting Python for **Climate Science/Services**
 
@@ -845,9 +854,9 @@ out.growing_degree_days.plot(hue='location')
 
 ---
 
-![bg contain](img/pavics.png)
-
 <!-- -->
+
+![bg contain](img/pavics.png)
 
 ---
 
