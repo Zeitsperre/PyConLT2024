@@ -845,7 +845,7 @@ out.growing_degree_days.plot(hue='location')
 
 ---
 
-![bg contain](img/PAVICS.png)
+![bg contain](img/pavics.png)
 
 <!-- -->
 
