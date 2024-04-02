@@ -119,7 +119,13 @@ style: |
 
 ### Presentation Outline
 
-<!-- This presentation is going to start by providing some context on climate adaptation information services, what my company has built with xclim and how we're actively making these kinds of analyses more accessible worldwide. -->
+<!--
+This presentation is going to start by providing some context on climate adaptation information services, what my company has built with xclim and how we're actively making these kinds of analyses more accessible worldwide.
+-->
+
+<!--
+
+ -->
 
 - Who am I? / What is Ouranos?
 - What's our context?
@@ -210,7 +216,7 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
   }
 </style>
 
-<!-- Since we only have one Earth to run experiments on, climate models are one tool to give us physically consistent estimates on what the future _could_ look like. Unfortunately, this means we need more and more storage and computation resources to test more hypotheses. At some point it becomes completely unmanageable and really challenging to even use it, so we need intermediaries to help. -->
+<!-- Since we only have one Earth to run experiments on, climate models are one tool to give us physically consistent estimates on what the future _could_ look like. Unfortunately, this means we need more and more storage and computation resources to test more hypotheses. At some point it becomes completely unmanageable and really challenging to determine what we want or even use climate data, so we need intermediaries to help. This field is what we call Climate Services. -->
 
 ![bg right:45% 88%](img/overpeck-et-al-2011.png)
 
@@ -228,7 +234,9 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 <!-- _footer: "Infographic from [The Canadian Centre for Climate Services (CCCS)](https://www.canada.ca/en/environment-climate-change/services/climate-change/canadian-centre-climate-services/about.html) " -->
 
-<!--  -->
+<!--
+Climate Services has been a developing field for a few decades now, more so lately with Climate Change. The idea behind a climate service provider is to act as the bridge between researchers in climate and general audiences. You can imagine being a city planner or someone in an industry that can be impacted by climate conditions; if you don't have a background in climate science, where do you even begin? For this we provide information and training to help **make sense of big climate data**. 
+-->
 
 ![bg left:40% 80%](img/cccs-climate-services.png)
 
@@ -248,7 +256,13 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
   li {font-size: 30px;}
 </style>
 
-<!-- -->
+<!--
+So what exactly do we provide? Depending on the context, it could be raw historical data to establish trends, or it could be future projections of climate indicators. My background is more agricultural, so we can imagine wanting to know things that would impact our growing season or placing stressing on the crops.
+
+Presenting this information is again dependent on the user; some people like maps, some people want time series, more advanced users might want raw data.
+
+In many general cases, they don't know what they want or need, so we help them figure that out!
+-->
 
 # What information do **Climate Services** provide?
 
@@ -256,18 +270,18 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 <div class="col">
 
-**Climate indicators**, e.g.:
+**Climate Indicators**, e.g.:
   - **Hot Days** (Days with temperature >= 22 deg Celsius);
   - **Beginning / End / Length of the growing season**;
   - **Average seasonal rainfall** (3-Month moving average precipitation);
   - **Daily temperature range**;
-    - etc.
+  - _Many more examples_
 
 </div>
 
 <div class="col">
 
-**Planning tools** :
+**Planning Tools**, e.g. :
   - Maps
   - Point estimates at geographic locations
   - Time series estimates
@@ -282,21 +296,19 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 ---
 
-<!--  -->
+# Building a **Climate Services** library?
 
-# Why build a **Climate Services** library in **Python**? 
-
-* Robust, trusted, and fast scientific Python libraries
-* Python's Readability / Reviewability
-* Growing demand for climate services/products
-  - Provide access to the community so they can help themselves
-* *The timing was right*
-  - Internal and external demand for common tools
-* **Less time writing code, more time spent doing research**
+<!--
+Since this field is growing so much and clearly is technically-focused, we should be building tools to better aid us no? So what does it need to do?
+-->
 
 ---
 
-<!--  -->
+<!--
+At its base, it needs to be able to calculate climate indicators, obviously, and what comes out should be easily used by users or other tools. Often climate data is averaged across models, so ensemble statistics tools are important, as well as ways of correcting bias from models and ensuring what we get out is physically possible.
+
+Operationally, it needs to handle Terabytes of data from different sources at times. It should be intuitive, and be relatively mistake-proof, and most importantly, we should be able to extend and build upon it, so that people can customize it to their needs.
+-->
 
 # What are the requirements?
 
@@ -327,13 +339,42 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 ---
 
+# Is there **Python** in this talk?
+
+- **Yes**
+<!--
+At this point, you're probably wondering where Python is coming in, and it's on the next slide.
+-->
+
+---
+
+<!--
+We decided to try our hand at building this all in Python for a number of reasons...
+
+Our goal ultimately was to ensure that we are ensuring that the research comes first and I think we've done that.
+-->
+
+# Why build a **Climate Services** library in **Python**? 
+
+* Robust, trusted, and fast scientific Python libraries
+* Python's Readability / Reviewability
+* Growing demand for climate services/products
+  - Provide access to the community so they can help themselves
+* *The timing was right*
+  - Internal and external demand for common tools
+* **Less time writing code, more time spent doing research**
+
+---
+
 <!-- _header: "" -->
 
-<!--  -->
+<!--
+Xclim is what we came up with: The library is build with a few key modules, each handling things like indicators, statistics, bias correction and some other utilities. It manages to strike a nice balance between usability and extensibility, and most importantly, it's fast.
+-->
 
 ![bg right:54% contain](img/xclim-schema.png)
 
-# **Xclim** : Climate Services library
+# **Xclim** : Climate Services for Python
 
 ![height:30](img/github.png) [Ouranosinc/xclim](https://github.com/Ouranosinc/xclim)
 
@@ -341,7 +382,7 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 - **Open Source** design
 - **Standards-compliant** metadata
 - **Extensible** / modular
-- **Operational**
+- **Operational** 
 
 ---
 
@@ -368,41 +409,31 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 <div class="col">
 
 * **Data Structure**
-<!-- We based our data structures on several Open Source scientific Python libraries, namely, Pandas, Numpy and Xarray, ensuring that our code can benefit from the parallelization made possible by Dask. -->
+<!--
+We based our data structures on several Open Source scientific Python libraries, namely, Pandas, Numpy and Xarray, ensuring that our code can benefit from the parallelization made possible by Dask. For projects based on xarray, it's customary to put an 'x' in the name, hence 'xclim'.
+-->
 
 </div>
 
 <div class="col">
 
 * **Algorithms**
-<!-- Xclim was built to be an operational library and as such, we built our algorithms based on more conventional libraries such as scipy for statistics, scikit-learn for bias-adjustment. Numba provides Just-in-time compilation and -->
+<!--
+Xclim was built to be an operational library and as such, we built our algorithms based on more conventional libraries such as scipy for statistics, scikit-learn for bias-adjustment. Numba provides Just-in-time compilation and pandas provides the base API for array and time operations.
+-->
 
 </div>
 
 <div class="col">
 
 * **Data and Metdata Conventions**
-<!-- Units management and conventions are also key to ensuring that the outputs of operations can be easily used in other applications, and issues such as unit management are handled via libraries dedicated to ensuring that dimensions are always preserved and expected output units are always the same, regardless of inputs. -->
+<!--
+Units management and conventions are also key to ensuring that the outputs of operations can be easily used in other applications, and issues such as unit management are handled via libraries dedicated to ensuring that dimensions are always preserved and expected output units are always the same, regardless of inputs.
+-->
 
 </div>
 
 </div>
-
----
-
-<!-- -->
-
-## Upstream contributions from **Xclim**
-
-- Non-standard calendar (`cftime`) support in `xarray.groupby`
-- Quantile methods in `xarray.groupby`
-- Non-standard calendar conversion migrated from `xclim` to `xarray`
-- Climate and Forecasting (CF) unit definitions inspired from `MetPy`
-  - Inspiring work in `cf-xarray`
-- Weighted variance, standard deviations and quantiles in `xarray` (for ensemble statistics)
--  Faster **NaN**-aware quantiles in `numpy` 
--  Initial polyfit function in `xarray`
-* Not to forget mentioning work done by the team in `xESMF`, `intake-esm`, `cf-xarray`, `xncml`, and others for `xclim`-related downstream tools and workflows
 
 ---
 
@@ -564,8 +595,6 @@ with xclim.set_options(
 
 ## What does **Xclim** do ➔ Climate Ensemble Mean Analysis
 
-<!--  -->
-
 **Average temperature from the years 1991-2020 baseline across 14 IPCC climate models at Montréal, Québec** (*extreme warming scenario: SSP3-7.0*)
 
 <!--
@@ -573,6 +602,7 @@ This is an example of what we can calculate with `Xclim`; Here we have data from
 
 On the left is the average annual temperature for the province of Quebec, while on the right is the average change from a 1990-2020 baseline across the 14 models.
 -->
+
 
 ---
 
@@ -604,6 +634,24 @@ On the left is the average annual temperature for the province of Quebec, while 
   - Principal Components Analysis
   - Multivariate (MBCn)
 - Plugin support for Python package **SBCK** (dOTC, CDFt, and other algorithms)
+
+---
+
+<!--
+Building this tool has also involved a lot of upstream contributions as well, addressing bugs or adding features to better 
+-->
+
+## Upstream contributions from **Xclim**
+
+- Non-standard calendar (`cftime`) support in `xarray.groupby`
+- Quantile methods in `xarray.groupby`
+- Non-standard calendar conversion migrated from `xclim` to `xarray`
+- Climate and Forecasting (CF) unit definitions inspired from `MetPy`
+  - Inspiring work in `cf-xarray`
+- Weighted variance, standard deviations and quantiles in `xarray` (for ensemble statistics)
+-  Faster **NaN**-aware quantiles in `numpy` 
+-  Initial polyfit function in `xarray`
+* Not to forget mentioning work done by the team in `xESMF`, `intake-esm`, `cf-xarray`, `xncml`, and others for `xclim`-related downstream tools and workflows
 
 ---
 
