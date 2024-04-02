@@ -463,10 +463,10 @@ Then there's the `indices` module which is the core algorithm, which you can use
 ---
 
 <!--
-We often get data from many sources and the units can sometimes be wildly different, like Celsius and Fahrenheit for temperature, or sometimes precipitation is total vs a rate. Also, many equations can be metric or imperial, so getting units right was key.
+We often get data from many sources and the units can sometimes be wildly different, like Celsius and Fahrenheit for temperature, or sometimes precipitation is total vs a rate. Also, in some fields, equations can be metric or imperical, so getting units right was key.
 
-Here we have an example for calculating monthly growing degree days, with different units for the source data and thresholds.
- -->
+Here we have an example for calculating monthly growing degree days, with different units for the source data and thresholds. 
+-->
 
 ## What does **Xclim** do? ➔ Units Management
 
@@ -503,7 +503,7 @@ out3 = xclim.atmos.growing_degree_days(tas=ds_pt.tas_F, thresh="278.15 K", freq=
 </style>
 
 <!--
-Running this we can see that regardless of the units used, they're always going to be cosnsistent, which is great for mixing and matching data.
+Running this block we can see that regardless of the units used, they're always going to be cosnsistent, which is great for mixing and matching data from different sources.
 -->
 
 ## What does **Xclim** do? ➔ Units Management
@@ -620,7 +620,7 @@ On the left is the average annual temperature for Quebec for 30-year periods cal
 
 While the right shows us the change in average temperature based on years 1990-2020 across those 14 models until the end of the century.
 
-I just want to reassure you that for dramatic purposes, the values here are for the extreme climate change scenario. Also there's still time!
+I just want to reassure you that for dramatic purposes, thse values are showing off the more extreme climate change scenario. There's still time to get our act together on the climate!
 -->
 
 ---
@@ -633,14 +633,14 @@ I just want to reassure you that for dramatic purposes, the values here are for 
   li {
     font-size: 24px;
   }
-  footer {
-    font-size: 17px;
-  }
 </style>
 
 <!-- _header: "" -->
+<!-- _footer: "" -->
 
-<!-- -->
+<!--
+All models are inherently wrong, and climate models are not special, so adjusting them so that their distributions of values match what we should expect is very important if we want to use them for real world scenarios is critical. I'm not really a stats person so I just wanted to briefly show what that looks like on the right here.
+-->
 
 ![bg right:60% vertical contain](img/eqm.png)
 ![bg contain](img/eqm-adjusted.png)
@@ -657,8 +657,12 @@ I just want to reassure you that for dramatic purposes, the values here are for 
 
 ---
 
+<!-- _footer: "" -->
+
 <!--
-Building this tool has also involved a lot of upstream contributions as well, addressing bugs or adding features to better 
+Building this tool has also involved a lot of upstream contributions as well, addressing bugs or adding features to better work with climate data. Much of the changes center around calendar systems, standard units, and statistics.
+
+I'll also mention that my team regularly contributes to the maintenance of a few libraries in the domain.
 -->
 
 ## Upstream contributions from **Xclim**
@@ -671,34 +675,49 @@ Building this tool has also involved a lot of upstream contributions as well, ad
 - Weighted variance, standard deviations and quantiles in `xarray` (for ensemble statistics)
 -  Faster **NaN**-aware quantiles in `numpy` 
 -  Initial polyfit function in `xarray`
-* Not to forget mentioning work done by the team in `xESMF`, `intake-esm`, `cf-xarray`, `xncml`, and others for `xclim`-related downstream tools and workflows
+
+* Not to forget mentioning work done by the team in `xESMF`, `intake-esm`, `cf-xarray`, `xncml`, and others for `xclim`-related tools
 
 ---
 
-<!-- -->
+<!-- This is all great if you have the data, resources, and technical training to run your analyses, but what if... -->
 
 ### That's great and all, but what if...
 
 * There's just too much data that we need to crunch :
   - The data could be spread across servers globally
-  - Local computing power is just not enough for the analysis
+  - Local computing power is not powerful enough for the analyses
 
-* We need to run lots of specific workflows regularly
+* The user knows programming but not Python :
+  - A biologist who uses `R` or a different program for their work
+  - An engineer who just needs a range of estimates for future rainfall
 
-* The user doesn't know how to write a Python script :
-  - A biologist who uses `R` for their work
-  - A city planner who just needs a range of estimates for future rainfall
-  - Agronomist wondering about average growing conditions in 10 years
+* The user just wants to see some custom maps :
+  - Agronomist who is curious about average growing conditions in 10 years?
 
 ---
 
 <!-- _footer: "" -->
 
-<!-- -->
+<!--
+For those with the Python knowledge, you can run your scripts on a web platform, connected directly to the data.
+
+This is a figure showing some of the ways we've made either our tools or data or information more accessible to all kinds of users. Technical users can use either the tools directly, or run them on our Jupyter-based research platform we call PAVICS; People who just want data outputs could use programmable dashboards we've made; or they can just grab data values from a map or pre-computed indicators.
+-->
+
+![bg contain](img/pavics.png)
+
+---
+
+<!--
+Another platform out there is The Microsoft Planetary Computer which hosts a bunch of climate data and has had xclim available for a few years now, with examples of how to use it.
+
+But accessibility is constantly a concern for climate services, so if you aren't familiar with Python, there are still ways of making use of it.
+-->
 
 ![bg left:50% 95%](img/ms-planetary-computer.png)
 
-# **Xclim** on Compute Platforms
+# **Xclim** on Computation Platforms
 
 ## Microsoft Planetary Computer
 
@@ -706,27 +725,49 @@ Building this tool has also involved a lot of upstream contributions as well, ad
 
 ---
 
+# Enhancing Accessibility : Web Services
+
+* **WMS**
+  * **Google Maps**
+* **WFS**
+* **WCS**
+* **WPS** : ***Web Processing Service***
+  - Running geospatial analyses over the internet
+
+<!--
+Another approach to solving the problem is to turn it into a service that can be deployed on a server and fetched via a web-based standard.
+
+By show of hands, who knows the following web services...?
+
+... The last one, Web Processing Service is what we decided to implement so that more user types could serve themselves.
+-->
+
+---
+
 <!-- _header: "" -->
 
-<!-- -->
+<!--  -->
 
 ![bg vertical right:50% 90%](img/birdhouse-git.png)
 ![bg contain](img/finches.png)
 
-# Finch: **Xclim** as a **Web Service**
+# Finch 
+
+## **Xclim** as a **Web Service**
 
 #### ![height:35](img/github.png) [github.com/Bird-house/Finch](https://github.com/bird-house/finch)
 
-- **Web Processing Services** (WPS)
-  - Built with Python (**PyWPS**)
-- Remote scientific analysis platforms 
-* _Bird-house likes to name their projects after birds_
+- Remote analysis of climate indicators
+- Implements **Web Processing Service** (**WPS**) standard
+  - Built in Python (**PyWPS**)
+
+* _Bird-house likes to name their projects after birds_  
 
 ---
 
-<!-- -->
+<!-- TODO: REMOVE THIS SLIDE - TALK ABOUT FINCH MORE -->
 
-## Using the **Finch** Web Service from Python (`owslib`)
+## Using the **Finch** Web Service from Python
 
 ```python
 from owslib.wps import WebProcessingService
@@ -740,7 +781,7 @@ finch = WebProcessingService(pavics_url)
 # Get a listing of all processes
 finch.processes
 
-print(len(finch.processes))  # --> 430 supported indicators and analyses!
+print(len(finch.processes))  # Hundreds of dynamically generated indicators and analyses!
 ```
 
 ---
@@ -916,12 +957,6 @@ out.growing_degree_days.plot(hue='location')
 
 ---
 
-<!-- -->
-
-![bg contain](img/pavics.png)
-
----
-
 <style scoped>
   li {
     font-size: 20px;
@@ -960,10 +995,10 @@ out.growing_degree_days.plot(hue='location')
 - Éric Dupuis
 - Gabriel Rondeau-Genesse
 - Carsten Ehbrecht
-- Sarah Gammon
 - Long Vu
+- Sarah Gammon
 - David Caron
- **and many more!**
+ **and many more contributors!**
 
 </div>
 
