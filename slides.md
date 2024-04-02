@@ -110,7 +110,7 @@ style: |
 ---
 
 <style scoped>
-    li {font-size: 26px;}
+    li {font-size: 30px;}
 </style>
 
 <!-- _footer: "Photo: Extratropropical Cyclone over Hudson Bay, Canada, August 2016. Credit: NASA Earth Observatory." -->
@@ -133,7 +133,7 @@ style: |
 ---
 
 <style scoped>
-  p {font-size: 26px;}
+  p {font-size: 30px;}
 </style>
 
 <!-- _footer: "" -->
@@ -155,7 +155,6 @@ style: |
 - 僕は日本語を勉強しています！
 
 ---
-
 
 <style scoped>
   p {
@@ -183,10 +182,6 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 ---
 
-<style scoped>
-  p {font-size: 20px;}
-</style>
-
 <!-- _header: "" -->
 <!-- _footer: "" -->
 
@@ -197,9 +192,9 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 # <!-- fit --> What's the **climate** situation?
 
-*"Since systematic scientific assessments began in the 1970s, the influence of human activities on the warming of the climate system has evolved from theory to established fact"*
+<!-- *"Since systematic scientific assessments began in the 1970s, the influence of human activities on the warming of the climate system has evolved from theory to established fact"*
 
-\- IPCC Sixth Assessment Report Technical Summary (IPCC AR6-TS)
+\- IPCC Sixth Assessment Report Technical Summary (IPCC AR6-TS) -->
 
 - Climate Change is having major impacts on Earth's environmental systems
 - IPCC: **Global average temperature has increased > 1.1 °C** over pre-industrial normals.
@@ -215,8 +210,6 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
   }
 </style>
 
-<!-- _footer: "Overpeck, Jonathan T., Gerald A. Meehl, Sandrine Bony, and David R. Easterling. “Climate Data Challenges in the 21st Century.” Science 331, no. 6018 (February 11, 2011): 700–702. https://doi.org/10.1126/science.1197869" -->
-
 <!-- Since we only have one Earth to run experiments on, climate models are one tool to give us physically consistent estimates on what the future _could_ look like. Unfortunately, this means we need more and more storage and computation resources to test more hypotheses. At some point it becomes completely unmanageable and really challenging to even use it, so we need intermediaries to help. -->
 
 ![bg right:45% 88%](img/overpeck-et-al-2011.png)
@@ -228,6 +221,8 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
   * More climate simulations being produced every day
   * Higher resolution input **and** output datasets
   * Specialised analyses and more personalized user needs
+
+<!-- "Overpeck, Jonathan T., Gerald A. Meehl, Sandrine Bony, and David R. Easterling. “Climate Data Challenges in the 21st Century.” Science 331, no. 6018 (February 11, 2011): 700–702. https://doi.org/10.1126/science.1197869" -->
 
 ---
 
@@ -250,9 +245,7 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 ---
 
 <style scoped>
-  li {
-    font-size: 24px;
-  }
+  li {font-size: 30px;}
 </style>
 
 <!-- -->
@@ -274,7 +267,7 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 <div class="col">
 
-**Planning tools**
+**Planning tools** :
   - Maps
   - Point estimates at geographic locations
   - Time series estimates
@@ -294,6 +287,7 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 # Why build a **Climate Services** library in **Python**? 
 
 * Robust and fast scientific Python libraries
+* Readability / reviewability
 * Growing demand for climate services/products
   - Provide access to the community so they can help themselves
 * *The timing was right*
