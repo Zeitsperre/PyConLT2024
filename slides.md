@@ -571,7 +571,7 @@ with xclim.set_options(
 <!--
 Looking at the metadata of the object, we can see in the history that the information about how we calld this operation shows the missing data threshold, the call signature and operation, the version etc.
 
-Below that we also have the French translations for the Indicator, complete with the 
+Below that we also have the dynamically generated metadata for the Indicator, complete with the customized thresholds, for both French and English.
 -->
 
 ## What does **Xclim** do? ➔ Missing Data and Metadata Locales
@@ -614,9 +614,13 @@ with xclim.set_options(
 **Average temperature from the years 1991-2020 baseline across 14 IPCC climate models at Montréal, Québec** (*extreme warming scenario: SSP3-7.0*)
 
 <!--
-This is an example of what we can calculate with `Xclim`; Here we have data from 14 climate models. 
+Here's an example of what we can calculate with xclim.
 
-On the left is the average annual temperature for the province of Quebec, while on the right is the average change from a 1990-2020 baseline across the 14 models.
+On the left is the average annual temperature for Quebec for 30-year periods calculated from 14 different climate model projections.  
+
+While the right shows us the change in average temperature based on years 1990-2020 across those 14 models until the end of the century.
+
+I just want to reassure you that for dramatic purposes, the values here are for the extreme climate change scenario. Also there's still time!
 -->
 
 ---
