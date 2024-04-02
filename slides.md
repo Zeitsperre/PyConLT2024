@@ -286,13 +286,13 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 # Why build a **Climate Services** library in **Python**? 
 
-* Robust and fast scientific Python libraries
-* Readability / reviewability
+* Robust, trusted, and fast scientific Python libraries
+* Python's Readability / Reviewability
 * Growing demand for climate services/products
   - Provide access to the community so they can help themselves
 * *The timing was right*
   - Internal and external demand for common tools
-* Less time writing code, more time spent doing research
+* **Less time writing code, more time spent doing research**
 
 ---
 
@@ -339,8 +339,8 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 - **Asynchonous IO** and **fast**
 - **Open Source** design
-- **standards-compliant** metadata
-- **Extensible** (modular)
+- **Standards-compliant** metadata
+- **Extensible** / modular
 - **Operational**
 
 ---
@@ -368,14 +368,14 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 <div class="col">
 
 * **Data Structure**
-<!-- We based our data structures on several Open Source scientific Python libraries, namely, Pandas, Numpy and Xarray, ensuring that our code can benefit from the parallelization provided by Dask. -->
+<!-- We based our data structures on several Open Source scientific Python libraries, namely, Pandas, Numpy and Xarray, ensuring that our code can benefit from the parallelization made possible by Dask. -->
 
 </div>
 
 <div class="col">
 
 * **Algorithms**
-<!-- Xclim was built to be an operational library and as such, we built our algorithms based on more conventional libraries such as scipy and statsmodels for statistics, scikit-learn for bias-adjustment. Numba provides Just-in-time compilation and -->
+<!-- Xclim was built to be an operational library and as such, we built our algorithms based on more conventional libraries such as scipy for statistics, scikit-learn for bias-adjustment. Numba provides Just-in-time compilation and -->
 
 </div>
 
