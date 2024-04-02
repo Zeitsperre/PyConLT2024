@@ -439,7 +439,11 @@ Units management and conventions are also key to ensuring that the outputs of op
 
 <!-- _header: "" -->
 
-<!--  -->
+<!-- 
+We decided to offer two ways of calculating Indicators. The `indicators` module is what we suggest for users and it handles...
+
+Then there's the `indices` module which is the core algorithm, which you can use a basis to build your own indicators or you can use it directly if you trust yourself.
+-->
 
 ![bg right:45% contain](img/indicators.png)
 
@@ -447,18 +451,22 @@ Units management and conventions are also key to ensuring that the outputs of op
 
 ### Two ways of calculating indicators
 
-* `indice` (**Core algorithms**)
-  - For users that don't care for the standards and quality checks
 * `indicators` (**End-User API**)
   - Metadata standards checks
   - Data quality checks
   - Time frequency checks
   - Missing data-compliance
   - Calendar-compliance
+* `indice` (**Core API**)
+  - For users that don't care for the standards and quality checks
 
 ---
 
-<!-- -->
+<!--
+We often get data from many sources and the units can sometimes be wildly different, like Celsius and Fahrenheit for temperature, or sometimes precipitation is total vs a rate. Also, many equations can be metric or imperial, so getting units right was key.
+
+Here we have an example for calculating monthly growing degree days, with different units for the source data and thresholds.
+ -->
 
 ## What does **Xclim** do? ➔ Units Management
 
@@ -494,7 +502,9 @@ out3 = xclim.atmos.growing_degree_days(tas=ds_pt.tas_F, thresh="278.15 K", freq=
   }
 </style>
 
-<!-- -->
+<!--
+Running this we can see that regardless of the units used, they're always going to be cosnsistent, which is great for mixing and matching data.
+-->
 
 ## What does **Xclim** do? ➔ Units Management
 
@@ -502,6 +512,7 @@ out3 = xclim.atmos.growing_degree_days(tas=ds_pt.tas_F, thresh="278.15 K", freq=
 
 ```python
 import xclim
+from clisops.core import subset
 
 # Data is in Kelvin, threshold is in Celsius, and other combinations
 
@@ -522,14 +533,16 @@ out3 = xclim.atmos.growing_degree_days(tas=ds_pt.tas_F, thresh="278.15 K", freq=
 
 ---
 
-## What does **Xclim** do? ➔ Metadata Locales
+## What does **Xclim** do? ➔ Missing Data and Metadata Locales
 
-<!-- `xclim` also has the ability to  -->
+<!--
+Since Quebec is a French-speaking region of Canada, `xclim` also has the capability to dynamically translate metadata depending on the locale. We actually built a pretty comprehensive engine for doing this. It can support any language, really, so Lithuania would be possible if you're interested in implementing it.
+
+Here we have a calculation for days with temperature below 0 Celsius. I've also added a check for missing data, so any years that are missing more than 5% of values are dropped to strengthen the statistics. -->
 
 ```python
 import xarray as xr
 import xclim
-
 
 ds = xr.open_dataset("my_dataset.nc")
 
@@ -555,16 +568,19 @@ with xclim.set_options(
   }
 </style>
 
-<!-- -->
+<!--
+Looking at the metadata of the object, we can see in the history that the information about how we calld this operation shows the missing data threshold, the call signature and operation, the version etc.
 
-## What does **Xclim** do? ➔ Metadata Locales
+Below that we also have the French translations for the Indicator, complete with the 
+-->
+
+## What does **Xclim** do? ➔ Missing Data and Metadata Locales
 
 ![img](img/metadata-locales.png)
 
 ```python
 import xarray as xr
 import xclim
-
 
 ds = xr.open_dataset("my_dataset.nc")
 
@@ -603,7 +619,6 @@ This is an example of what we can calculate with `Xclim`; Here we have data from
 On the left is the average annual temperature for the province of Quebec, while on the right is the average change from a 1990-2020 baseline across the 14 models.
 -->
 
-
 ---
 
 <style scoped>
@@ -628,12 +643,13 @@ On the left is the average annual temperature for the province of Quebec, while 
 
 ## What Does **Xclim** do? ➔ Bias Adjustment
 
-- Adjusts model bias from projected data using a `train`/`adjust` approach
+- Adjusts model bias from projected data using a `train` / `adjust` approach
 - Several implementations available :
   - Quantile Mapping
   - Principal Components Analysis
-  - Multivariate (MBCn)
-- Plugin support for Python package **SBCK** (dOTC, CDFt, and other algorithms)
+  - Multivariate (`MBCn`)
+- Plugin support for statistics package **SBCK** 
+  - `dOTC`, `CDFt`, others
 
 ---
 
