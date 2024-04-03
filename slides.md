@@ -64,9 +64,9 @@ style: |
   }
   header {
     background: 
-      linear-gradient(orange, orange) top,
-      linear-gradient(green, green) center,
-      linear-gradient(red, red) bottom;
+      linear-gradient(#FFB81C, #FFB81C) top,
+      linear-gradient(#046A38, #046A38) center,
+      linear-gradient(#BE3A34, #BE3A34) bottom;
     background-size: 100% 33.33%;
     background-repeat: no-repeat;
     color: white;
@@ -455,7 +455,7 @@ Units management and conventions are also key to ensuring that the outputs of op
 
 ![bg contain](img/github-ci.png)
 
-# oh, and `pytest(-xdist)`
+# and `pytest(-xdist)`
 
 **~1625 tests** (baseline)
 \+ Doctests
@@ -971,9 +971,9 @@ out.growing_degree_days.plot(hue='location')
   }
   h1 {
     background: 
-      linear-gradient(orange, orange) top,
-      linear-gradient(green, green) center,
-      linear-gradient(red, red) bottom;
+      linear-gradient(#FFB81C, #FFB81C) top,
+      linear-gradient(#046A38, #046A38) center,
+      linear-gradient(#BE3A34, #BE3A34) bottom;
     background-size: 100% 33.33%;
     background-repeat: no-repeat;
     color: white;
