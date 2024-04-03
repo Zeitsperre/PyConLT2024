@@ -129,7 +129,7 @@ This presentation is going to start by providing some context on climate adaptat
 - `xclim`: climate operations
 - `finch`: `xclim` as a Service
 - Climate WPS Frontends
-- What's next for us?
+- Open Source Climate Services
 - Acknowledgements
 
 ---
@@ -219,10 +219,10 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 # <!-- fit --> What's the **climate data** situation?
 
-**Climate data is a "Big Data" problem**
+**Climate science is a "Big Data" problem**
   * New climate models being developed every year
   * More climate simulations being produced every day
-  * Higher resolution input **and** output datasets (gridded data)
+  * Higher resolution input and output datasets (gridded data)
   * Specialised analyses and more personalized user needs
 
 <!-- "Overpeck, Jonathan T., Gerald A. Meehl, Sandrine Bony, and David R. Easterling. “Climate Data Challenges in the 21st Century.” Science 331, no. 6018 (February 11, 2011): 700–702. https://doi.org/10.1126/science.1197869" -->
@@ -984,7 +984,7 @@ out.growing_degree_days.plot(hue='location')
   }
 </style>
 
-<!-- -->
+<!-- Thanks for coming and listening to me run through climate services! Ačiū! -->
 
 <div class=container>
 
@@ -1021,6 +1021,9 @@ out.growing_degree_days.plot(hue='location')
 
 ## **[github.com/Bird-house/finch](https://github.com/bird-house/finch)**
 [![DOI height:50px](https://zenodo.org/badge/DOI/10.5281/zenodo.10870939.svg)](https://doi.org/10.5281/zenodo.10870939)
+
+**This presentation:**
+  https://zeitsperre.github.io/PyConLT2024/
 
 </div>
 
