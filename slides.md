@@ -293,31 +293,33 @@ In many general cases, they don't know what they want or need, so we help them f
 
 ---
 
-<!-- -->
+<!--
+Climate Services have been around for some time, but when I started working on them, there was a lot of terrible things we had to work with...
+-->
 
-# Climate Services in the 2010s
+# **Climate Services** in the 2010s
 
-- `MATLAB`-based in-house libraries (**proprietary**) 💰
+- `MATLAB`-based in-house libraries (**proprietary** 💰)
   - No external libraries / all in-house
-- Issues with data storage/access/processing
-  - Small team unable to meet demand 😫
-- Lack of uniformity between researchers ⁉️
-- Lots of bugs and human error 🐛
+- Issues with data storage/access/processing 😫
+  - Small team unable to meet demand 
+  - Lack of output data uniformity between researchers ⁉️
+  - Lots of bugs 🐛 and human error 🙅
 - Data analysis/requests served manually ⏳
-- Software validation/testing??? 😱
+- Software testing + data validation? Not really. 😱
 
 ---
 
 # Building a **Climate Services** library?
 
 <!--
-Since this field is growing so much and clearly is technically-focused, we should be building tools to better aid us no? So what does it need to do?
+This couldn't continue, so when we were negotiating with the Canadian Government for a development agreement for a Climate Data website, we were adamant to put some funding into a library to help deal with some of these problems.
 -->
 
 ---
 
 <!--
-At its base, it needs to be able to calculate climate indicators, obviously, and what comes out should be easily used by users or other tools. Often climate data is averaged across models, so ensemble statistics tools are important, as well as ways of correcting bias from models and ensuring what we get out is physically possible.
+At its base, the library needs to be able to calculate climate indicators, obviously, and what comes out should be easily used by users or other tools. Often climate data is averaged across models, so ensemble statistics tools are important, as well as ways of correcting bias from models and ensuring what we get out is physically possible.
 
 Operationally, it needs to handle Terabytes of data from different sources at times. It should be intuitive, and be relatively mistake-proof, and most importantly, we should be able to extend and build upon it, so that people can customize it to their needs.
 -->
@@ -622,8 +624,6 @@ Below that we also have the dynamically generated metadata for the Indicator, co
 
 ## What does **Xclim** do? ➔ Missing Data and Metadata Locales
 
-![img](img/metadata-locales.png)
-
 ```python
 import xarray as xr
 import xclim
@@ -639,6 +639,8 @@ with xclim.set_options(
     # Calculate Annual Frost Days (days with min temperature < 0 °C) 
     FD = aclim.atmos.frost_days(ds.tas, freq="YS")
 ```
+
+![img](img/metadata-locales.png)
 
 ---
 
@@ -837,11 +839,10 @@ print(len(finch.processes))  # Hundreds of dynamically generated indicators and 
 
 <!-- -->
 
-## Using the **Finch** Web Service from Python (`birdy`)
+## Using the **Finch** Web Service from Python (with `birdy`)
 
 ```python
 from birdy import WPSClient
-
 
 wps = WPSClient(finch_url)
 
@@ -961,45 +962,16 @@ out.growing_degree_days.plot(hue='location')
 
 ---
 
-<style scoped>
-  {font-size: 26px;}
-</style>
-
 <!-- -->
 
-# <!-- fit --> Our Experience Adopting Python for **Climate Science/Services**
+# Modern-day **Climate Science/Services**
 
-<div class="container">
-
-<div class="col">
-
-### Before (circa 2016)
-
-- `MATLAB`-based in-house libraries (**proprietary**)
-  - No external libraries all in-house
-- Issues with data storage/access/processing
-  - Small team unable to meet demand
-- Lack of uniformity between researchers
-- Lots of bugs and human error
-- Data analysis/requests served manually
-- Software validation/testing???
-
-</div>
-
-<div class="col">
-
-### After
-
-- **Open Source** `Python` libraries (`numpy`, `sklearn`, `xarray`, etc.)
-- Multithreading and streaming data formats (e.g. ZARR)
-- Common tools built in-house and shared widely (`xclim`)
-- Web service-based infrastructure 
-- Testing (`pytest`), Software CI/CD, and data validation
-- Peer-Reviewed Software (**JOSS**)
-
-</div>
-
-</div>
+- **Open Source Python** libraries (`numpy`, `sklearn`, `xarray`, etc.)
+- **Multithreading** and streaming data formats (e.g. `ZARR`)
+- **Common tools** built in-house and **shared widely** (`xclim`, `finch`)
+- **Docker**-deployed Web-Service-based infrastructure 
+- Testing (`pytest`), CI/CD, and data validation workflows
+- **Peer-Reviewed Software** (**JOSS**)
 
 ---
 
@@ -1028,13 +1000,12 @@ out.growing_degree_days.plot(hue='location')
 
 <div class=col>
 
-## Thanks!
+# Thanks!
 
-### Colleagues and collaborators
+### Colleagues and Collaborators
 
 - Pascal Bourgault
 - David Huard
-- Trevor J. Smith
 - Travis Logan
 - Abel Aoun
 - Juliette Lavoie
