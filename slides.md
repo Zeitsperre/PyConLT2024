@@ -52,9 +52,9 @@ style: |
   li {
     background-color: white;
     border-radius: 30px;
-    bottom: 10.5%;
+    bottom: 10%;
     color: navy;
-    font-size: 25px;
+    font-size: 27px;
     list-style-type: none;
     opacity: 75%;
     padding: 10px;
@@ -92,7 +92,7 @@ style: |
   }
 </style>
 
-<!-- _footer: "**Ouranos**: Innovation cluster and consultation forum enabling Quebec society to better adapt to Climate Change" -->
+<!-- _footer: "" -->
 <!-- _paginate: false -->
 
 # Building Open Climate Change Information Services in Python
@@ -122,10 +122,6 @@ style: |
 <!--
 This presentation is going to start by providing some context on climate adaptation information services, what my company has built with xclim and how we're actively making these kinds of analyses more accessible worldwide.
 -->
-
-<!--
-
- -->
 
 - Who am I? / What is Ouranos?
 - What's our context?
@@ -157,7 +153,7 @@ This presentation is going to start by providing some context on climate adaptat
 
 - Research software developer/packager/maintainer from Montréal, Québec, Canada 🇨🇦
 - Studied climate change impacts on wine viticulture 🍇 in Southern Québec 
-- Making stuff with Python  for ~6.5 years
+- Making stuff with Python 🐍 for ~6.5 years
 - 僕は日本語を勉強しています！ 🇯🇵
 
 ---
@@ -177,12 +173,13 @@ This presentation is going to start by providing some context on climate adaptat
 ![bg vertical right:50% 95%](img/ouranos-website.png)
 ![bg 85%](img/ice-storm.jpg)
 
-# What is [Ouranos](https://www.ouranos.ca/en)?
+# What is [Ouranos](https://www.ouranos.ca/en)? 🌀
 
 * Non-profit research consortium established in 2003 in Montréal, Québec, Canada
   * Created in response to the [January 1998 North American Ice Storm](https://en.wikipedia.org/wiki/January_1998_North_American_ice_storm) 🌨️
-* Climate change adaptation and **climate information services**
+* Climate Change Adaptation Planning
 * Climate Model Data Producer/Provider
+* **Climate Information Services**
 
 Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-richelieu_ice-storm/
 
@@ -191,7 +188,7 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 <!-- _header: "" -->
 <!-- _footer: "" -->
 
-<!-- Before we get to the Python, it would be good to talk about why climate researchers are becoming software developers;  The fact that human-induced Climate Change is occurring is established fact. The temperature change alone has the potential to really impact a lot of things we depend on. Extreme global weather patterns are just one such side effect. -->
+<!-- Before we get to the Python, it would be good to talk about the climate context. The fact that human-induced Climate Change is occurring is established fact. The temperature change alone has the potential to really impact a lot of things we depend on. Extreme global weather patterns are just one such side effect. -->
 
 ![bg vertical left:55% width:90% height:95%](img/hockey-stick.png)
 ![bg width:90% Surface air temperature anomaly for February 2024 using ERA5 Reanalysis - Courtesy of C3S/ECMWF](img/ecmwf-sat-anomaly-feb-2024.png)
@@ -203,8 +200,8 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 \- IPCC Sixth Assessment Report Technical Summary (IPCC AR6-TS) -->
 
 - Climate Change is having major impacts on Earth's environmental systems
-- IPCC: **Global average temperature has increased > 1.1 °C since 1850s**.
-  - **> 1.5 °C is considered to be beyond a safe limit**
+- IPCC: **Global average temperature has increased > +1.1 °C since 1850s**.
+  - **> +1.5 °C is considered to be beyond a safe limit**
 
 ---
 
@@ -222,7 +219,7 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 
 # <!-- fit --> What's the **climate data** situation?
 
-**Climate data is growing exponentially in size and complexity**
+**Climate data is a "Big Data" problem**
   * New climate models being developed every year
   * More climate simulations being produced every day
   * Higher resolution input **and** output datasets (gridded data)
@@ -271,9 +268,9 @@ In many general cases, they don't know what they want or need, so we help them f
 <div class="col">
 
 **Climate Indicators**, e.g.:
-  - **Hot Days** (Days with temperature >= 22 deg Celsius);
-  - **Beginning / End / Length of the growing season**;
-  - **Average seasonal rainfall** (3-Month moving average precipitation);
+  - **Hot Days** (Days with temperature >= 22 deg Celsius) 🌡️
+  - **Beginning / End / Length of the growing season** 🌷
+  - **Average seasonal rainfall** (3-Month moving average precipitation) ☔
   - _Many more examples_
 
 </div>
@@ -294,14 +291,14 @@ In many general cases, they don't know what they want or need, so we help them f
 ---
 
 <!--
-Climate Services have been around for some time, but when I started working on them, there was a lot of terrible things we had to work with...
+Climate Services have been around for some time, but when I started working on them, there was a lot of not so great things we had to deal with...
 -->
 
 # **Climate Services** in the 2010s
 
 - `MATLAB`-based in-house libraries (**proprietary** 💰)
-  - No external libraries / all in-house
-- Issues with data storage/access/processing 😫
+  - No source code review
+- Issues with data storage / access / processing 😫
   - Small team unable to meet demand 
   - Lack of output data uniformity between researchers ⁉️
   - Lots of bugs 🐛 and human error 🙅
@@ -313,7 +310,7 @@ Climate Services have been around for some time, but when I started working on t
 # Building a **Climate Services** library?
 
 <!--
-This couldn't continue, so when we were negotiating with the Canadian Government for a development agreement for a Climate Data website, we were adamant to put some funding into a library to help deal with some of these problems.
+This couldn't continue, so when we were negotiating with the Canadian Government for a development agreement for a website to show Climate Data, we were adamant to put some funding into a library to help tackle some of these problems.
 -->
 
 ---
@@ -370,33 +367,23 @@ Our goal ultimately was to ensure that we are ensuring that the research comes f
 
 # Why build a **Climate Services** library in **Python**? 
 
-* Robust, trusted, and fast scientific Python libraries
-* Python's Readability / Reviewability
-* Growing demand for climate services/products
-  - Provide access to the community so they can help themselves
+* **Robust**, **trustworthy**, and **fast** scientific Python libraries
+* Python's Readability / Reviewability (**Peer Review**)
+* Growing demand for climate services / products
+  - **Let the users help themselves**
 * *The timing was right*
   - Internal and external demand for common tools
 * **Less time writing code, more time spent doing research**
 
 ---
 
-<!-- _header: "" -->
+<!-- _footer: "" -->
 
 <!--
-Xclim is what we came up with: The library is build with a few key modules, each handling things like indicators, statistics, bias correction and some other utilities. It manages to strike a nice balance between usability and extensibility, and most importantly, it's fast.
+Xclim is what we came up with: The library is built with a few key modules, each handling things like indicators, statistics, bias correction and some other utilities. It manages to strike a nice balance between usability and extensibility, and most importantly, it's fast.
 -->
 
-![bg right:54% contain](img/xclim-schema.png)
-
-# **Xclim** : Climate Services for Python
-
-![height:30](img/github.png) [Ouranosinc/xclim](https://github.com/Ouranosinc/xclim)
-
-- **Asynchonous IO** and **fast**
-- **Open Source** design
-- **Standards-compliant** metadata
-- **Extensible** / modular
-- **Operational** 
+![bg 90%](img/xclim-badges.png)
 
 ---
 
@@ -448,6 +435,34 @@ Units management and conventions are also key to ensuring that the outputs of op
 </div>
 
 </div>
+
+---
+
+<style scoped>
+  h1 {
+    position: absolute;
+    bottom: 45%;
+  }
+  p {
+    position: absolute;
+    bottom: 10%;
+  }
+</style>
+
+<!-- _footer: "" -->
+
+<!-- Since this is research software, we need to be validating at all times, so we've built an extensive array of tests thanks to `pytest`, `pytest-xdist`, `tox`, etc. -->
+
+![bg contain](img/github-ci.png)
+
+# oh, and `pytest(-xdist)`
+
+**~1625 tests** (baseline)
+\+ Doctests
+\+ Jupyter Notebook tests
+\+ Optional module tests
+\+ Multiplatform/Anaconda Python tests
+\+ **ReadtheDocs** (`fail-on-warning: true`)
 
 ---
 
@@ -673,35 +688,21 @@ I just want to reassure you that for dramatic purposes, thse values are showing 
 
 ---
 
-<style scoped>
-  h1 {
-    position: absolute;
-    top: 5%;
-  }
-  li {
-    font-size: 24px;
-  }
 </style>
 
 <!-- _header: "" -->
 <!-- _footer: "" -->
 
 <!--
-All models are inherently wrong, and climate models are not special, so adjusting them so that their distributions of values match what we should expect is very important if we want to use them for real world scenarios is critical. I'm not really a stats person so I just wanted to briefly show what that looks like on the right here.
+All models are inherently wrong, and climate models are not special, so adjusting them so that their value distributions match what we should expect is important is if we want to use them for real world scenarios is critical. This module is very complex and I'm not a die-hard stats person so I just wanted to briefly show what that looks like on the right here.
 -->
 
-![bg right:60% vertical contain](img/eqm.png)
-![bg contain](img/eqm-adjusted.png)
+![bg right:70% vertical height:95% width:95%](img/eqm.png)
+![bg height:95% width:95%](img/eqm-adjusted.png)
 
 ## What Does **Xclim** do? ➔ Bias Adjustment
 
-- Adjusts model bias from projected data using a `train` / `adjust` approach
-- Several implementations available :
-  - Quantile Mapping
-  - Principal Components Analysis
-  - Multivariate (`MBCn`)
-- Plugin support for statistics package **SBCK** 
-  - `dOTC`, `CDFt`, others
+* Model `train` / `adjust` approach
 
 ---
 
@@ -720,11 +721,11 @@ I'll also mention that my team regularly contributes to the maintenance of a few
 - Non-standard calendar conversion migrated from `xclim` to `xarray`
 - Climate and Forecasting (CF) unit definitions inspired from `MetPy`
   - Inspiring work in `cf-xarray`
-- Weighted variance, standard deviations and quantiles in `xarray` (for ensemble statistics)
--  Faster **NaN**-aware quantiles in `numpy` 
--  Initial polyfit function in `xarray`
-
-* Not to forget mentioning work done by the team in `xESMF`, `intake-esm`, `cf-xarray`, `xncml`, and others for `xclim`-related tools
+- Weighted variance, standard deviations, and quantiles in `xarray`
+  (for ensemble statistics)
+- Faster `NaN`-aware quantiles in `numpy` 
+- Initial polyfit function in `xarray`
+- Also, we help maintain `xESMF`, `intake-esm`, `cf-xarray`, `xncml`, `climpred` and others for `xclim`-related tools
 
 ---
 
@@ -750,7 +751,7 @@ I'll also mention that my team regularly contributes to the maintenance of a few
 <!--
 For those with the Python knowledge, you can run your scripts on a web platform, connected directly to the data.
 
-This is a figure showing some of the ways we've made either our tools or data or information more accessible to all kinds of users. Technical users can use either the tools directly, or run them on our Jupyter-based research platform we call PAVICS; People who just want data outputs could use programmable dashboards we've made; or they can just grab data values from a map or pre-computed indicators.
+This figure shows some of the ways we've made either our tools or data or information more accessible to all kinds of users. Technical users can use either the tools directly, or run them on our Jupyter-based research platform we call PAVICS; People who just want data outputs could use programmable dashboards we've made; or they can just grab data values from a map or pre-computed indicators.
 -->
 
 ![bg contain](img/pavics.png)
@@ -758,9 +759,9 @@ This is a figure showing some of the ways we've made either our tools or data or
 ---
 
 <!--
-Another platform out there is The Microsoft Planetary Computer which hosts a bunch of climate data and has had xclim available for a few years now, with examples of how to use it.
+Another platform out there is The Microsoft Planetary Computer which hosts a bunch of climate data and has had `xclim` available for a few years now, with examples on how to use it.
 
-But accessibility is constantly a concern for climate services, so if you aren't familiar with Python, there are still ways of making use of it.
+But accessibility is constantly a concern for climate services and there are still other ways of making use of it.
 -->
 
 ![bg left:50% 95%](img/ms-planetary-computer.png)
@@ -773,15 +774,6 @@ But accessibility is constantly a concern for climate services, so if you aren't
 
 ---
 
-# Enhancing Accessibility : Web Services
-
-* **WMS**
-  * **Google Maps**
-* **WFS**
-* **WCS**
-* **WPS** : ***Web Processing Service***
-  - Running geospatial analyses over the internet
-
 <!--
 Another approach to solving the problem is to turn it into a service that can be deployed on a server and fetched via a web-based standard.
 
@@ -790,30 +782,14 @@ By show of hands, who knows the following web services...?
 ... The last one, Web Processing Service is what we decided to implement so that more user types could serve themselves.
 -->
 
----
+# Enhancing Accessibility : Web Services
 
-<!-- _header: "" -->
-
-<!--
-So we decided to move forward with building a Web Service in partnership with a project based in Germany called Bird-house, the idea being to be able to run analyses using Web Standards built in Python.
-
-...Bird-house likes to name their projects after Birds, so to be clever, we landed on "Finch" to make reference to environmental adaptations that Charles Darwin talked about when he wrote about finches in the Galapagos Islands.
--->
-
-![bg vertical right:50% 90%](img/birdhouse-git.png)
-![bg contain](img/finches.png)
-
-# Finch 
-
-## **Xclim** as a **Web Service**
-
-#### ![height:35](img/github.png) [github.com/Bird-house/Finch](https://github.com/bird-house/finch)
-
-- Remote analysis of climate indicators
-- Implements **Web Processing Service** (**WPS**) standard
-  - Built in Python (**PyWPS**)
-
-* _Bird-house likes to name their projects after birds_  
+* **WMS** : Web Mapping Service
+  * **Google Maps**
+* **WFS** : Web Feature Service
+* **WCS** : Web Coverage Service
+* **WPS** : ***Web Processing Service***
+  - Running geospatial analyses over the internet
 
 ---
 
@@ -826,15 +802,26 @@ So we decided to move forward with building a Web Service in partnership with a 
     position: absolute;
     bottom: 10%;
   }
+  h4 {
+    position: absolute;
+    top: 17%;
+    right: 10%;
+  }
 </style>
 
-<!--  -->
+<!--
+So we decided to move forward with building a Web Service in partnership with a project based in Germany called Bird-house, the idea being to be able to run analyses using Web Standards built in Python.
 
-# **Finch** Climate Analysis Web Service
+...Bird-house likes to name their projects after Birds, so to be clever, we landed on "Finch" to make reference to environmental adaptations that Charles Darwin talked about when he wrote about finches in the Galapagos Islands.
+
+-->
+
+# **Finch** : Climate Indicator Web Processing Service
 
 ![bg 90%](img/finch-nav.png)
 
-### Dynamically-generated indicators from `xclim`
+### **Dynamically-generated indicators from `xclim`** (~430 Indicators in total)
+#### ![height:30](img/github.png) [github.com/Bird-house/Finch](https://github.com/bird-house/finch)
 
 ---
 
@@ -843,12 +830,12 @@ So we decided to move forward with building a Web Service in partnership with a 
 
 <!-- -->
 
-## Using the **Finch** Web Service from Python (with `birdy`)
+## Using remote **Finch** Web Service from Python (with `birdy`)
 
 ```python
 from birdy import WPSClient
 
-wps = WPSClient(finch_url)
+wps = WPSClient("https://ouranos.ca/example/finch/wps")
 
 # Using the OPeNDAP protocol
 remote_dataset = "www.exampledata.lt/climate.ncml"
@@ -949,7 +936,7 @@ out.growing_degree_days.plot(hue='location')
 
 # Making it accessible ➔ Web Frontends
 
-## [ClimateData.ca](https://climatedata.ca)
+## [www.ClimateData.ca](https://climatedata.ca)
 
 ![bg width:100% height:100%](img/climate-data-ca-screen.png)
 
@@ -965,16 +952,16 @@ out.growing_degree_days.plot(hue='location')
 
 ---
 
-<!-- -->
+<!-- Today -->
 
-# Modern-day **Climate Science/Services**
+# Modern-day **Climate Services** with **Python**
 
 - **Open Source Python** libraries (`numpy`, `sklearn`, `xarray`, etc.)
-- **Multithreading** and streaming data formats (e.g. `ZARR`)
-- **Common tools** built in-house and **shared widely** (`xclim`, `finch`)
-- **Docker**-deployed Web-Service-based infrastructure 
-- Testing (`pytest`), CI/CD, and data validation workflows
-- **Peer-Reviewed Software** (**JOSS**)
+- **Multithreading** and **streaming** data formats (e.g. `OPeNDAP` and `ZARR`)
+- **Common tools** built collaboratively and **shared widely** (`xclim`, `finch`)
+- **Docker**-deployed **Web-Service**-based infrastructure 
+- **Testing**, **CI/CD** pipelines, and **validation workflows**
+- **Peer-Reviewed** software (**pyOpenSci** and **JOSS**)
 
 ---
 
@@ -1026,7 +1013,7 @@ out.growing_degree_days.plot(hue='location')
 
 # Ačiū!
 
-**Have a great rest of PyCon Lithuania!**
+**Have a great rest of PyCon Lithuania!** 🇱🇹
 
 ## **[github.com/Ouranosinc/xclim](https://github.com/Ouranosinc/xclim)**
 [![JOSS height:50px](https://joss.theoj.org/papers/10.21105/joss.05415/status.svg)](https://doi.org/10.21105/joss.05415)
