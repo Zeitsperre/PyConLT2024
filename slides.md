@@ -794,7 +794,11 @@ By show of hands, who knows the following web services...?
 
 <!-- _header: "" -->
 
-<!--  -->
+<!--
+So we decided to move forward with building a Web Service in partnership with a project based in Germany called Bird-house, the idea being to be able to run analyses using Web Standards built in Python.
+
+...Bird-house likes to name their projects after Birds, so to be clever, we landed on "Finch" to make reference to environmental adaptations that Charles Darwin talked about when he wrote about finches in the Galapagos Islands.
+-->
 
 ![bg vertical right:50% 90%](img/birdhouse-git.png)
 ![bg contain](img/finches.png)
@@ -813,24 +817,24 @@ By show of hands, who knows the following web services...?
 
 ---
 
-<!-- TODO: REMOVE THIS SLIDE - TALK ABOUT FINCH MORE -->
+<style scoped>
+  h1 {
+    position: absolute;
+    top: 10%;
+  }
+  h3 {
+    position: absolute;
+    bottom: 10%;
+  }
+</style>
 
-## Using the **Finch** Web Service from Python
+<!--  -->
 
-```python
-from owslib.wps import WebProcessingService
+# **Finch** Climate Analysis Web Service
 
-# URL running our service
-finch_url = "https://pavics.ouranos.ca/twitcher/ows/proxy/finch/wps"
+![bg 90%](img/finch-nav.png)
 
-# Connect to the Finch WPS service
-finch = WebProcessingService(pavics_url)
-
-# Get a listing of all processes
-finch.processes
-
-print(len(finch.processes))  # Hundreds of dynamically generated indicators and analyses!
-```
+### Dynamically-generated indicators from `xclim`
 
 ---
 
@@ -887,7 +891,6 @@ out.growing_degree_days.plot(hue='location')
 
 ```python
 from birdy import WPSClient
-
 
 wps = WPSClient(finch_url)
 
@@ -1025,11 +1028,11 @@ out.growing_degree_days.plot(hue='location')
 
 **Have a great rest of PyCon Lithuania!**
 
-## **[Ouranosinc/xclim](https://github.com/Ouranosinc/xclim)**
+## **[github.com/Ouranosinc/xclim](https://github.com/Ouranosinc/xclim)**
 [![JOSS height:50px](https://joss.theoj.org/papers/10.21105/joss.05415/status.svg)](https://doi.org/10.21105/joss.05415)
 [![DOI height:50px](https://zenodo.org/badge/DOI/10.5281/zenodo.10710942.svg)](https://doi.org/10.5281/zenodo.10710942)
 
-## **[Bird-house/finch](https://github.com/bird-house/finch)**
+## **[github.com/Bird-house/finch](https://github.com/bird-house/finch)**
 [![DOI height:50px](https://zenodo.org/badge/DOI/10.5281/zenodo.10870939.svg)](https://doi.org/10.5281/zenodo.10870939)
 
 </div>
