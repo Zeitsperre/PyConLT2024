@@ -155,10 +155,10 @@ This presentation is going to start by providing some context on climate adaptat
 ![height:35](img/github.png) [**github.com/Zeitsperre**](https://github.com/Zeitsperre)
 ![height:35](img/mastodon-logo.png) [**Zeit@techhub.social**](https://techhub.social/@zeit)
 
-- Research software developer/maintainer from Montréal, Canada
-- Studied climate change impacts on wine viticulture in Southern Québec
-- Making stuff with Python for ~6.5 years
-- 僕は日本語を勉強しています！
+- Research software developer/packager/maintainer from Montréal, Québec, Canada 🇨🇦
+- Studied climate change impacts on wine viticulture 🍇 in Southern Québec 
+- Making stuff with Python  for ~6.5 years
+- 僕は日本語を勉強しています！ 🇯🇵
 
 ---
 
@@ -179,10 +179,10 @@ This presentation is going to start by providing some context on climate adaptat
 
 # What is [Ouranos](https://www.ouranos.ca/en)?
 
-* Not-for-profit climate research consortium established in 2003 in Montréal, Québec, Canada
-  * Created in response to the [January 1998 North American Ice Storm](https://en.wikipedia.org/wiki/January_1998_North_American_ice_storm)
-* Climate change adaptation, climate modelling, and **climate information services**
-* Regional Climate Model (RCM) Data Producer/Provider
+* Non-profit research consortium established in 2003 in Montréal, Québec, Canada
+  * Created in response to the [January 1998 North American Ice Storm](https://en.wikipedia.org/wiki/January_1998_North_American_ice_storm) 🌨️
+* Climate change adaptation and **climate information services**
+* Climate Model Data Producer/Provider
 
 Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-richelieu_ice-storm/
 
@@ -203,8 +203,8 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 \- IPCC Sixth Assessment Report Technical Summary (IPCC AR6-TS) -->
 
 - Climate Change is having major impacts on Earth's environmental systems
-- IPCC: **Global average temperature has increased > 1.1 °C** over pre-industrial normals.
-  - **> 1.5 °C** is seen as beyond a safe limit
+- IPCC: **Global average temperature has increased > 1.1 °C since 1850s**.
+  - **> 1.5 °C is considered to be beyond a safe limit**
 
 ---
 
@@ -225,7 +225,7 @@ Photo credit: https://www.communitystories.ca/v2/grand-verglas-saint-jean-sur-ri
 **Climate data is growing exponentially in size and complexity**
   * New climate models being developed every year
   * More climate simulations being produced every day
-  * Higher resolution input **and** output datasets
+  * Higher resolution input **and** output datasets (gridded data)
   * Specialised analyses and more personalized user needs
 
 <!-- "Overpeck, Jonathan T., Gerald A. Meehl, Sandrine Bony, and David R. Easterling. “Climate Data Challenges in the 21st Century.” Science 331, no. 6018 (February 11, 2011): 700–702. https://doi.org/10.1126/science.1197869" -->
@@ -274,7 +274,6 @@ In many general cases, they don't know what they want or need, so we help them f
   - **Hot Days** (Days with temperature >= 22 deg Celsius);
   - **Beginning / End / Length of the growing season**;
   - **Average seasonal rainfall** (3-Month moving average precipitation);
-  - **Daily temperature range**;
   - _Many more examples_
 
 </div>
@@ -282,17 +281,30 @@ In many general cases, they don't know what they want or need, so we help them f
 <div class="col">
 
 **Planning Tools**, e.g. :
-  - Maps
-  - Point estimates at geographic locations
-  - Time series estimates
-  - Gridded values
-  - Raw data (for experts)
-  * **Not really sure what they want/need?**
+  - Maps 🗺️
+  - Point estimates at geographic locations 📈
+  - Gridded values 🌐
+  * **Not really sure what they need?** ❓
     **➔ Guidance from experts!**
 
 </div>
 
 </div>
+
+---
+
+<!-- -->
+
+# Climate Services in the 2010s
+
+- `MATLAB`-based in-house libraries (**proprietary**) 💰
+  - No external libraries / all in-house
+- Issues with data storage/access/processing
+  - Small team unable to meet demand 😫
+- Lack of uniformity between researchers ⁉️
+- Lots of bugs and human error 🐛
+- Data analysis/requests served manually ⏳
+- Software validation/testing??? 😱
 
 ---
 
@@ -438,11 +450,45 @@ Units management and conventions are also key to ensuring that the outputs of op
 ---
 
 <!-- _header: "" -->
+<!-- _footer: "" -->
+
+<!-- Here's the simplest example of a climate indicator I can find: We are taking daily values for snow depth and calculating the year average. Everything is well documented using NumPy Docstrings. The unit dimensions are length and we are resampling to a coarser time frequency. The input units could be inches or millimetres and we explicitly check this in the decorator using metadata standards. This is then passed to more checks to make sure everything is valid. -->
+
+# Climate Indicator Example - Average Snow Depth 
+
+```python
+@declare_units(snd="[length]")
+def snow_depth(
+    snd: xarray.DataArray,
+    freq: str = "YS",
+) -> xarray.DataArray:
+    """Mean of daily average snow depth.
+
+    Resample the original daily mean snow depth series by taking the mean over each period.
+
+    Parameters
+    ----------
+    snd : xarray.DataArray
+        Mean daily snow depth.
+    freq : str
+        Resampling frequency.
+
+    Returns
+    -------
+    xarray.DataArray, [same units as snd]
+        The mean daily snow depth at the given time frequency
+    """
+    return snd.resample(time=freq).mean(dim="time").assign_attrs(units=snd.units)
+```
+
+---
+
+<!-- _header: "" -->
 
 <!-- 
-We decided to offer two ways of calculating Indicators. The `indicators` module is what we suggest for users and it handles...
+The `indicators` module is what we suggest for users and it handles...
 
-Then there's the `indices` module which is the core algorithm, which you can use a basis to build your own indicators or you can use it directly if you trust yourself.
+But for those who want to circumvent all these checks, we expose the core `indices` module, which you can use as a basis to build your own indicators or you can use it directly if you trust yourself.
 -->
 
 ![bg right:45% contain](img/indicators.png)
