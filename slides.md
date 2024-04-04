@@ -154,7 +154,7 @@ This presentation is going to start by providing some context on climate adaptat
 - Research software developer/packager/maintainer from Montréal, Québec, Canada 🇨🇦
 - Studied climate change impacts on wine viticulture 🍇 in Southern Québec 
 - Making stuff with Python 🐍 for ~6.5 years
-- Užupio Respublikos pilietis (2024 m.)
+- Užupio Respublikos 🖐️ pilietis (nuo 2024 m.)
 
 ---
 
