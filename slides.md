@@ -154,7 +154,8 @@ This presentation is going to start by providing some context on climate adaptat
 - Research software developer/packager/maintainer from Montréal, Québec, Canada 🇨🇦
 - Studied climate change impacts on wine viticulture 🍇 in Southern Québec 
 - Making stuff with Python 🐍 for ~6.5 years
-- Užupio Respublikos 🖐️ pilietis (nuo 2024 m.)
+- Užupio Respublikos 🖐️ pilietis
+  (nuo 2024 m.)
 
 ---
 
@@ -298,8 +299,8 @@ Climate Services have been around for some time, but when I started working on t
 
 - `MATLAB`-based in-house libraries (**proprietary** 💰)
   - No source code review
-- Issues with data storage / access / processing 😫
-  - Small team unable to meet demand 
+- Issues with data storage / access / processing
+  - Small team unable to meet demand 😫
   - Lack of output data uniformity between researchers ⁉️
   - Lots of bugs 🐛 and human error 🙅
 - Data analysis/requests served manually ⏳
@@ -310,13 +311,13 @@ Climate Services have been around for some time, but when I started working on t
 # Building a **Climate Services** library?
 
 <!--
-This couldn't continue, so when we were negotiating with the Canadian Government for a development agreement for a website to show Climate Data, we were adamant to put some funding into a library to help tackle some of these problems.
+This couldn't continue, so when we were negotiating with the Canadian Government for a development agreement for a website to show Climate Data for Canada, we were adamant that we needed to put some funding into a library to help tackle some of these logistical problems. This was approved.
 -->
 
 ---
 
 <!--
-At its base, the library needs to be able to calculate climate indicators, obviously, and what comes out should be easily used by users or other tools. Often climate data is averaged across models, so ensemble statistics tools are important, as well as ways of correcting bias from models and ensuring what we get out is physically possible.
+At its base, the library needed to be able to calculate climate indicators, obviously, and what comes out should be easily used by users and fed into other tools. Often climate model data is averaged to remove bias, so statistics tools were also important, as well as ways of correcting bias from models and ensuring what we get out is physically possible.
 
 Operationally, it needs to handle Terabytes of data from different sources at times. It should be intuitive, and be relatively mistake-proof, and most importantly, we should be able to extend and build upon it, so that people can customize it to their needs.
 -->
@@ -812,6 +813,7 @@ So we decided to move forward with building a Web Service in partnership with a 
 
 ...Bird-house likes to name their projects after Birds, so to be clever, we landed on "Finch" to make reference to environmental adaptations that Charles Darwin talked about when he wrote about finches in the Galapagos Islands.
 
+
 -->
 
 # **Finch** : Climate Indicator Web Processing Service
@@ -826,7 +828,11 @@ So we decided to move forward with building a Web Service in partnership with a 
 <!-- _header: "" -->
 <!-- _footer: "" -->
 
-<!-- -->
+<!--
+Bird-house offers a library called Birdy to help with interacting with WPS processes. This service could be running locally or remotely, and we have the option of chaining processes or running some processes in parallel if the service is configured that way.
+
+Once we make a connection, calling the indicator calculation is almost exactly the same as in xclim. Once it's done, we can either download the data or stream it to our local computer. 
+-->
 
 ## Using remote **Finch** Web Service from Python (with `birdy`)
 
@@ -870,7 +876,11 @@ out.growing_degree_days.plot(hue='location')
 <!-- _header: "" -->
 <!-- _footer: "" -->
 
-<!-- -->
+<!--
+Here we asked for estimates of growing degree days at certain point locations in Canada, and that's what we get out from the remote analysis.
+
+You can imagine that once this is setup we can go further and build a Web UI to make it even more accessible.
+-->
 
 ## Using remote **Finch** Web Service from Python (`birdy`) ![img](img/location-graphs.png)
 
@@ -930,7 +940,11 @@ out.growing_degree_days.plot(hue='location')
 <!-- _footer: "" -->
 <!-- _paginate: false -->
 
-<!-- -->
+<!--
+And that's what developers on the ClimateData.ca project did!
+
+This is the ClimateData.ca website that xclim and finch supports in the backend and it's been a huge success all-around. We're constantly making improvements, updating the datasets, etc. If you're interested in seeing what climate change may look like in Canada, please give it some traffic!
+-->
 
 # Making it accessible ➔ Web Frontends
 
@@ -950,7 +964,11 @@ out.growing_degree_days.plot(hue='location')
 
 ---
 
-<!-- Today -->
+<!--
+Today, our experience is very different having adopted Python and Open Source, and it's much more maintainable and reasonable.
+
+Being able to collaborate with many developers around the world has made for better tools and for a better software ecosystem in climate generally.
+-->
 
 # Modern-day **Climate Services** with **Python**
 
@@ -982,7 +1000,13 @@ out.growing_degree_days.plot(hue='location')
   }
 </style>
 
-<!-- Thanks for coming and listening to me run through climate services! Ačiū! -->
+<!--
+Thanks for coming and listening to me run through climate services! 
+
+You can find our software here and the link to thses slides is at the bottom. I'm going to clean them up and finalize them very soon after PyCon Lithuania ends.
+
+Ačiū!
+-->
 
 <div class=container>
 
