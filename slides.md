@@ -874,7 +874,7 @@ out.growing_degree_days.plot(hue='location')
 
 <!-- -->
 
-## Using the **Finch** Web Service from Python (`birdy`) ![img](img/location-graphs.png)
+## Using remote **Finch** Web Service from Python (`birdy`) ![img](img/location-graphs.png)
 
 ```python
 from birdy import WPSClient
