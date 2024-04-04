@@ -674,7 +674,7 @@ with xclim.set_options(
 
 ## What does **Xclim** do ➔ Climate Ensemble Mean Analysis
 
-**Average temperature from the years 1991-2020 baseline across 14 IPCC climate models at Montréal, Québec** (*extreme warming scenario: SSP3-7.0*)
+**Average temperature from the years 1991-2020 average across 14 Regional Climate Models** (*extreme warming scenario: SSP3-7.0*)
 
 <!--
 Here's an example of what we can calculate with xclim.
@@ -687,8 +687,6 @@ I just want to reassure you that for dramatic purposes, thse values are showing 
 -->
 
 ---
-
-</style>
 
 <!-- _header: "" -->
 <!-- _footer: "" -->
